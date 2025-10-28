@@ -3,21 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Portfolio website of Tarun Nethi - Data Engineer specializing in Big Data, Cloud, and Analytics." />
+    <meta name="description" content="Portfolio of Tarun Nethi — Data Engineer specializing in Cloud, Big Data, and Analytics." />
     <title>Tarun Nethi | Data Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
     <style>
       html {
         scroll-behavior: smooth;
       }
       body {
         background-color: #0d0d0d;
-        color: #fff;
+        color: #ffffff;
+        font-family: "Inter", sans-serif;
+      }
+      h1, h2, h3, h4 {
+        font-family: "Poppins", sans-serif;
+      }
+      a:hover {
+        text-shadow: 0 0 8px #00e5ff;
+        transition: 0.3s;
       }
     </style>
   </head>
 
-  <body class="antialiased font-sans">
+  <body class="antialiased">
     <!-- Header -->
     <header class="max-w-6xl mx-auto px-6 py-8 flex justify-between items-center">
       <div class="flex items-center space-x-4">
@@ -38,13 +50,13 @@
     </header>
 
     <!-- Hero -->
-    <section class="max-w-6xl mx-auto px-6 py-16 grid lg:grid-cols-2 gap-10 items-center">
+    <section class="max-w-6xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-10 items-center">
       <div>
-        <h2 class="text-4xl md:text-5xl font-extrabold leading-tight">I build scalable data systems that power analytics and product decisions.</h2>
-        <p class="mt-6 text-gray-300 max-w-2xl">
-          Data Engineer with 5+ years of experience across Azure, AWS, and GCP. I specialize in designing ETL pipelines, automating workflows, and enabling data-driven insights for analytics and product teams.
+        <h2 class="text-5xl font-extrabold leading-tight mb-6">I build scalable data systems that power analytics and product decisions.</h2>
+        <p class="text-gray-300 max-w-2xl mb-8">
+          Data Engineer with 5+ years of experience in Azure, AWS, and GCP. I specialize in designing ETL pipelines, automating data workflows, and enabling data-driven decision-making.
         </p>
-        <div class="mt-8 flex items-center gap-4">
+        <div class="flex items-center gap-4">
           <a href="#contact" class="px-5 py-3 bg-cyan-400/10 border border-cyan-400 rounded hover:bg-cyan-400/20 text-cyan-300 font-medium">Get in touch</a>
           <a href="resume.pdf" class="px-4 py-2 border border-gray-700 rounded hover:bg-white/5 text-sm">Download Resume</a>
         </div>
@@ -60,124 +72,88 @@
         <ul class="space-y-2 text-sm text-gray-200">
           <li>• 5+ years — Data Engineering, ETL/ELT, Cloud Data Platforms</li>
           <li>• Core: Python, PySpark, SQL, Databricks, ADF, Kafka, AWS, Azure</li>
-          <li>• Experience with healthcare (CMS/EMR/claims), payments, and e-commerce data</li>
+          <li>• Experience in healthcare, payments, and e-commerce domains</li>
           <li>• CI/CD, Terraform, Airflow, Docker, Kubernetes</li>
         </ul>
       </div>
     </section>
 
     <!-- About -->
-    <section id="about" class="max-w-6xl mx-auto px-6 py-16">
-      <h2 class="text-2xl font-semibold mb-6">About</h2>
+    <section id="about" class="max-w-6xl mx-auto px-6 py-20">
+      <h2 class="text-3xl font-semibold mb-6">About</h2>
       <p class="text-gray-300 max-w-3xl">
-        I hold a Master’s in Computer Science from the University of Texas at Arlington and a Bachelor’s in Computer Science. Over the past five years, I’ve built data platforms that transform raw, complex data into reliable insights. My focus is on building scalable, automated, and efficient data systems that empower analytics and decision-making.
+        I hold a Master’s in Computer Science from the University of Texas at Arlington. Over the past five years, I’ve built data platforms that transform raw, complex data into reliable insights. My goal is to deliver scalable, automated, and efficient data systems that empower analytics and business decisions.
       </p>
     </section>
 
     <!-- Experience -->
-    <section id="experience" class="max-w-6xl mx-auto px-6 py-16">
-      <h2 class="text-2xl font-semibold mb-8">Experience</h2>
+    <section id="experience" class="max-w-6xl mx-auto px-6 py-20">
+      <h2 class="text-3xl font-semibold mb-8">Experience</h2>
 
       <div class="space-y-10">
         <div class="bg-[#0b0b0b] border border-white/5 rounded-2xl p-6">
-          <h3 class="font-bold">Mastercard</h3>
+          <h3 class="font-bold text-lg">Mastercard</h3>
           <p class="text-sm text-gray-400 mb-4">Data Engineer | Aug 2023 – Present</p>
           <ul class="list-disc list-inside text-gray-300 space-y-2 text-sm">
             <li>Optimized data ingestion using Python-based frameworks, reducing processing time by 30%.</li>
-            <li>Developed Spark jobs with REST API integration for dynamic data ingestion.</li>
-            <li>Built scripts to process files into S3, DynamoDB, and Snowflake for analytics.</li>
-            <li>Configured Kafka clusters and developed Java consumers for real-time streaming.</li>
-            <li>Automated batch workflows using Airflow and shell scripts, cutting manual effort.</li>
+            <li>Built Spark jobs integrating REST API data for analytics pipelines.</li>
+            <li>Automated workflows with Airflow and shell scripts.</li>
+            <li>Configured Kafka clusters and streaming pipelines.</li>
           </ul>
         </div>
 
         <div class="bg-[#0b0b0b] border border-white/5 rounded-2xl p-6">
-          <h3 class="font-bold">UnitedHealth Group</h3>
+          <h3 class="font-bold text-lg">UnitedHealth Group</h3>
           <p class="text-sm text-gray-400 mb-4">Data Engineer | Jul 2021 – May 2022</p>
           <ul class="list-disc list-inside text-gray-300 space-y-2 text-sm">
-            <li>Built Azure Data Factory pipelines and Databricks notebooks processing Delta Lake data.</li>
-            <li>Secured data using Azure Key Vault, ensuring HIPAA compliance.</li>
-            <li>Used Event Hubs for real-time data ingestion from healthcare systems.</li>
-            <li>Automated deployments via JSON scripts and managed Airflow workflows.</li>
+            <li>Created Azure Data Factory pipelines and Databricks notebooks for healthcare data.</li>
+            <li>Ensured HIPAA compliance and data security using Azure Key Vault.</li>
+            <li>Processed EMR and CMS data via Event Hubs for real-time ingestion.</li>
           </ul>
         </div>
 
         <div class="bg-[#0b0b0b] border border-white/5 rounded-2xl p-6">
-          <h3 class="font-bold">CMR Infotech</h3>
+          <h3 class="font-bold text-lg">CMR Infotech</h3>
           <p class="text-sm text-gray-400 mb-4">Data Engineer | May 2019 – Jun 2021</p>
           <ul class="list-disc list-inside text-gray-300 space-y-2 text-sm">
-            <li>Developed Hadoop-based ETL pipelines using Hive and Spark.</li>
-            <li>Optimized SQL queries and built database schemas for efficient data access.</li>
-            <li>Automated workflows with Oozie and visualized analytics in Tableau.</li>
+            <li>Built Hadoop-based ETL pipelines using Hive and Spark.</li>
+            <li>Developed SQL schemas and optimized query performance.</li>
+            <li>Automated data workflows with Oozie and visualized in Tableau.</li>
           </ul>
         </div>
       </div>
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="max-w-6xl mx-auto px-6 py-16">
-      <h2 class="text-2xl font-semibold mb-6">Selected Projects</h2>
+    <section id="projects" class="max-w-6xl mx-auto px-6 py-20">
+      <h2 class="text-3xl font-semibold mb-6">Selected Projects</h2>
       <div class="grid md:grid-cols-2 gap-6">
         <div class="rounded-2xl border border-white/5 p-6 bg-[#0b0b0b]">
           <h4 class="font-semibold">Real-Time Streaming Pipeline</h4>
-          <p class="text-sm text-gray-300 mt-2">Built Kafka-based Spark streaming ingestion delivering near real-time insights.</p>
+          <p class="text-sm text-gray-300 mt-2">Developed Kafka + Spark streaming ingestion with near real-time analytics.</p>
           <p class="mt-4 text-xs text-gray-400">Tech: Kafka, Spark, AWS, Python</p>
         </div>
-
         <div class="rounded-2xl border border-white/5 p-6 bg-[#0b0b0b]">
           <h4 class="font-semibold">Healthcare Data Lake</h4>
-          <p class="text-sm text-gray-300 mt-2">Designed HIPAA-compliant lakehouse for CMS and EMR analytics.</p>
+          <p class="text-sm text-gray-300 mt-2">Built HIPAA-compliant data lake for CMS and EMR analytics.</p>
           <p class="mt-4 text-xs text-gray-400">Tech: Azure Data Factory, Databricks, Delta Lake</p>
         </div>
-
         <div class="rounded-2xl border border-white/5 p-6 bg-[#0b0b0b]">
-          <h4 class="font-semibold">E-commerce Insights</h4>
-          <p class="text-sm text-gray-300 mt-2">Integrated transactional and behavioral data to compute customer LTV and churn.</p>
+          <h4 class="font-semibold">E-commerce Insights Platform</h4>
+          <p class="text-sm text-gray-300 mt-2">Integrated customer data for behavioral and LTV analytics.</p>
           <p class="mt-4 text-xs text-gray-400">Tech: AWS Redshift, Glue, Spark</p>
         </div>
-
         <div class="rounded-2xl border border-white/5 p-6 bg-[#0b0b0b]">
-          <h4 class="font-semibold">CI/CD Automation</h4>
-          <p class="text-sm text-gray-300 mt-2">Implemented automated data deployments using Terraform and Jenkins pipelines.</p>
+          <h4 class="font-semibold">CI/CD for Data Workflows</h4>
+          <p class="text-sm text-gray-300 mt-2">Implemented Terraform + Jenkins pipelines for automated data deployments.</p>
           <p class="mt-4 text-xs text-gray-400">Tech: Terraform, Jenkins, Airflow</p>
         </div>
       </div>
     </section>
 
-    <!-- Skills -->
-    <section id="skills" class="max-w-6xl mx-auto px-6 py-16">
-      <h2 class="text-2xl font-semibold mb-6">Skills</h2>
-      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-        <div class="rounded-2xl border border-white/5 p-4 bg-[#0b0b0b]">
-          <h3 class="text-sm font-semibold mb-2">Programming</h3>
-          <p class="text-xs text-gray-300">Python, Scala, SQL, Java</p>
-        </div>
-        <div class="rounded-2xl border border-white/5 p-4 bg-[#0b0b0b]">
-          <h3 class="text-sm font-semibold mb-2">Big Data</h3>
-          <p class="text-xs text-gray-300">Spark, Hadoop, Hive, Kafka</p>
-        </div>
-        <div class="rounded-2xl border border-white/5 p-4 bg-[#0b0b0b]">
-          <h3 class="text-sm font-semibold mb-2">Cloud</h3>
-          <p class="text-xs text-gray-300">Azure, AWS, GCP</p>
-        </div>
-        <div class="rounded-2xl border border-white/5 p-4 bg-[#0b0b0b]">
-          <h3 class="text-sm font-semibold mb-2">DevOps</h3>
-          <p class="text-xs text-gray-300">Terraform, Docker, Kubernetes, Jenkins</p>
-        </div>
-        <div class="rounded-2xl border border-white/5 p-4 bg-[#0b0b0b]">
-          <h3 class="text-sm font-semibold mb-2">Data Tools</h3>
-          <p class="text-xs text-gray-300">Databricks, ADF, Airflow, Snowflake</p>
-        </div>
-        <div class="rounded-2xl border border-white/5 p-4 bg-[#0b0b0b]">
-          <h3 class="text-sm font-semibold mb-2">Visualization</h3>
-          <p class="text-xs text-gray-300">Tableau, Power BI, SSRS</p>
-        </div>
-      </div>
-    </section>
-
     <!-- Contact -->
-    <section id="contact" class="max-w-6xl mx-auto px-6 py-16">
-      <h2 class="text-2xl font-semibold mb-6">Contact</h2>
+    <section id="contact" class="max-w-6xl mx-auto px-6 py-20">
+      <h2 class="text-3xl font-semibold mb-6">Contact</h2>
       <div class="grid md:grid-cols-2 gap-8">
         <div class="rounded-2xl border border-white/5 p-6 bg-[#0b0b0b]">
           <p class="text-gray-300">Interested in collaborating or hiring? Let’s connect.</p>
@@ -201,8 +177,34 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 text-center text-sm text-gray-500">
-      © 2025 Tarun Nethi • Built with ❤️ and Python
-    </footer>
+    <footer class="py-8 text-center text-sm text-gray-500">© 2025 Tarun Nethi • Built with ❤️ and Python</footer>
+
+    <!-- Lenis + GSAP Animations -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.25/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+      const lenis = new Lenis({
+        duration: 1.3,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.utils.toArray("section").forEach((section) => {
+        gsap.from(section, {
+          scrollTrigger: { trigger: section, start: "top 85%", toggleActions: "play none none none" },
+          opacity: 0,
+          y: 40,
+          duration: 0.8,
+          ease: "power2.out",
+        });
+      });
+    </script>
   </body>
 </html>
