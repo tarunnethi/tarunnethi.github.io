@@ -1,210 +1,411 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Portfolio of Tarun Nethi — Data Engineer specializing in Cloud, Big Data, and Analytics." />
-    <title>Tarun Nethi | Data Engineer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Tarun Nethi — Data Engineer portfolio. Cloud, Big Data, Streaming, Analytics." />
+  <title>Tarun Nethi — Data Engineer</title>
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
 
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        background-color: #0d0d0d;
-        color: #ffffff;
-        font-family: "Inter", sans-serif;
-      }
-      h1, h2, h3, h4 {
-        font-family: "Poppins", sans-serif;
-      }
-      a:hover {
-        text-shadow: 0 0 8px #00e5ff;
-        transition: 0.3s;
-      }
-    </style>
-  </head>
+  <style>
+    :root{
+      --bg:#0b0b0b;
+      --panel:#0f0f10;
+      --muted:#9aa4ad;
+      --accent:#00e5ff;
+      --glass: rgba(255,255,255,0.03);
+      --radius:18px;
+    }
 
-  <body class="antialiased">
-    <!-- Header -->
-    <header class="max-w-6xl mx-auto px-6 py-8 flex justify-between items-center">
-      <div class="flex items-center space-x-4">
-        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-black font-bold">TN</div>
+    html,body{height:100%;margin:0;}
+    body{
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(0,229,255,0.03), transparent),
+                  radial-gradient(1000px 500px at 90% 90%, rgba(63,191,255,0.02), transparent),
+                  var(--bg);
+      color:#fff;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+    }
+
+    /* Layout */
+    .container{max-width:1100px;margin:0 auto;padding:28px;}
+    header{display:flex;align-items:center;justify-content:space-between;padding:24px 0;position:relative;z-index:40}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{
+      width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+      font-weight:800;color:#061216;background:linear-gradient(135deg,var(--accent),#3ef0f2);box-shadow:0 6px 28px rgba(0,229,255,0.06);
+    }
+    .brand h1{font-family:Poppins, sans-serif;font-size:16px;margin:0;}
+    .brand p{margin:0;color:var(--muted);font-size:13px}
+
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-size:14px;padding:6px 10px;border-radius:10px}
+    nav a:hover{color:#fff;text-shadow:0 0 8px rgba(0,229,255,0.08)}
+    .resume-btn{border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px;color:var(--muted);font-weight:600}
+    .resume-btn:hover{background:rgba(255,255,255,0.02);color:var(--accent)}
+
+    /* Hero */
+    .hero{height:100vh;display:grid;grid-template-columns:1fr 420px;align-items:center;padding:10vh 0;gap:42px}
+    .hero-left{max-width:720px}
+    .eyebrow{color:var(--muted);letter-spacing:0.06em;margin-bottom:18px;font-size:13px}
+    .title{font-family:Poppins, sans-serif;font-size:58px;line-height:1.02;margin:0 0 18px}
+    .subtitle{color:var(--muted);font-size:18px;max-width:52ch;margin-bottom:24px}
+    .cta{display:flex;gap:12px;align-items:center}
+    .btn-primary{padding:12px 20px;border-radius:12px;background:linear-gradient(90deg,var(--accent),#3ef0f2);color:#001516;font-weight:700;border:none;cursor:pointer}
+    .btn-ghost{padding:10px 16px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--muted);cursor:pointer}
+    .contact-info{margin-top:20px;color:var(--muted);font-size:14px}
+
+    /* Right panel */
+    .panel{background:var(--panel);padding:22px;border-radius:16px;border:1px solid rgba(255,255,255,0.03);backdrop-filter: blur(6px);}
+    .panel h4{margin:0 0 8px;font-size:13px;color:var(--muted)}
+    .panel ul{margin:8px 0 0;padding-left:18px;color:#e9f9fb}
+    .panel li{margin-bottom:8px;font-size:14px}
+
+    /* Sections */
+    section{padding:120px 0;border-top:1px solid rgba(255,255,255,0.02)}
+    .section-title{font-size:28px;margin:0 0 18px;font-family:Poppins}
+    .card{background:var(--panel);border-radius:14px;padding:20px;border:1px solid rgba(255,255,255,0.03);}
+
+    /* Experience grid */
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .role{margin-bottom:10px}
+    .role h5{margin:0;font-weight:700}
+    .role .meta{color:var(--muted);font-size:13px;margin-top:6px}
+
+    /* Projects */
+    .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+
+    /* Skills */
+    .skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+
+    /* Contact form */
+    .contact-grid{display:grid;grid-template-columns:1fr 420px;gap:26px}
+    input,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#fff;resize:vertical}
+    label{display:block;color:var(--muted);font-size:13px;margin-bottom:8px}
+    .send-btn{padding:12px 18px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:linear-gradient(90deg,var(--accent),#3ef0f2);color:#001516;font-weight:700;cursor:pointer}
+
+    /* Footer */
+    footer{text-align:center;padding:36px 0;color:var(--muted);font-size:13px}
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr;gap:28px;padding-top:80px;padding-bottom:60px}
+      .panel{order:2}
+      .contact-grid{grid-template-columns:1fr}
+      .grid-2,.projects-grid,.skill-grid{grid-template-columns:1fr}
+    }
+
+    /* subtle accent underline for nav active state */
+    nav a.active{position:relative}
+    nav a.active:after{content:'';position:absolute;left:0;right:0;bottom:-8px;height:2px;background:linear-gradient(90deg,var(--accent),#3ef0f2);border-radius:2px;opacity:0.9}
+
+    /* subtle floating shapes (pure CSS) */
+    .float-shape{
+      position:fixed;right:-80px;top:10vh;width:360px;height:360px;border-radius:50%;
+      background:radial-gradient(circle at 30% 30%, rgba(0,229,255,0.06), transparent 30%),
+                 radial-gradient(circle at 70% 70%, rgba(63,191,255,0.03), transparent 40%);
+      filter:blur(20px);pointer-events:none;z-index:0;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="float-shape" aria-hidden="true"></div>
+
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">TN</div>
         <div>
-          <h1 class="text-lg font-semibold">Tarun Nethi</h1>
-          <p class="text-sm text-gray-400">Data Engineer — Cloud • Big Data • Analytics</p>
+          <h1>Tarun Nethi</h1>
+          <p>Data Engineer — Cloud • Big Data • Analytics</p>
         </div>
       </div>
-      <nav class="hidden md:flex items-center space-x-6 text-sm text-gray-300">
-        <a href="#about" class="hover:text-white">About</a>
-        <a href="#experience" class="hover:text-white">Experience</a>
-        <a href="#projects" class="hover:text-white">Projects</a>
-        <a href="#skills" class="hover:text-white">Skills</a>
-        <a href="#contact" class="hover:text-white">Contact</a>
-        <a href="resume.pdf" class="ml-4 px-4 py-2 border border-gray-700 rounded hover:bg-white/5">Resume</a>
+
+      <nav id="nav">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a href="resume.pdf" class="resume-btn" target="_blank" rel="noopener">Resume</a>
       </nav>
     </header>
 
-    <!-- Hero -->
-    <section class="max-w-6xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-10 items-center">
-      <div>
-        <h2 class="text-5xl font-extrabold leading-tight mb-6">I build scalable data systems that power analytics and product decisions.</h2>
-        <p class="text-gray-300 max-w-2xl mb-8">
-          Data Engineer with 5+ years of experience in Azure, AWS, and GCP. I specialize in designing ETL pipelines, automating data workflows, and enabling data-driven decision-making.
+    <!-- HERO -->
+    <main class="hero" id="top">
+      <div class="hero-left">
+        <div class="eyebrow">Hi, I’m</div>
+
+        <!-- Intro text blocks to be animated -->
+        <h2 class="title" id="intro-line-1">Tarun Nethi.</h2>
+        <h2 class="title" id="intro-line-2" style="opacity:0;transform:translateY(14px)">I build scalable data systems.</h2>
+
+        <p class="subtitle" id="intro-sub" style="opacity:0;transform:translateY(10px)">
+          I design cloud-native ETL &amp; streaming pipelines and ship reliable datasets that power analytics and product decisions. I work across Azure, AWS, Databricks, Spark, and Kafka.
         </p>
-        <div class="flex items-center gap-4">
-          <a href="#contact" class="px-5 py-3 bg-cyan-400/10 border border-cyan-400 rounded hover:bg-cyan-400/20 text-cyan-300 font-medium">Get in touch</a>
-          <a href="resume.pdf" class="px-4 py-2 border border-gray-700 rounded hover:bg-white/5 text-sm">Download Resume</a>
+
+        <div class="cta" style="opacity:0;transform:translateY(10px)">
+          <a href="#contact" class="btn-primary">Get in touch</a>
+          <a href="resume.pdf" class="btn-ghost" target="_blank" rel="noopener">Download Resume</a>
         </div>
-        <div class="mt-8 text-sm text-gray-500">
-          <p><strong>Email:</strong> tarunnethibs@gmail.com</p>
-          <p><strong>Phone:</strong> +1 (469) 847-9161</p>
-          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/tarun-nethi-628082172" class="text-cyan-300 hover:underline">linkedin.com/in/tarun-nethi-628082172</a></p>
+
+        <div class="contact-info">
+          <div><strong>Email:</strong> tarunnethibs@gmail.com</div>
+          <div><strong>Phone:</strong> +1 (469) 847-9161</div>
+          <div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/tarun-nethi-628082172" style="color:var(--accent);text-decoration:none">linkedin.com/in/tarun-nethi-628082172</a></div>
         </div>
       </div>
 
-      <div class="border border-white/5 rounded-2xl p-6 bg-[#0b0b0b]">
-        <h3 class="text-sm text-gray-300 mb-4">Snapshot</h3>
-        <ul class="space-y-2 text-sm text-gray-200">
-          <li>• 5+ years — Data Engineering, ETL/ELT, Cloud Data Platforms</li>
-          <li>• Core: Python, PySpark, SQL, Databricks, ADF, Kafka, AWS, Azure</li>
-          <li>• Experience in healthcare, payments, and e-commerce domains</li>
-          <li>• CI/CD, Terraform, Airflow, Docker, Kubernetes</li>
+      <aside class="panel" aria-label="Snapshot">
+        <h4>Snapshot</h4>
+        <ul>
+          <li>5+ years — Data Engineering, ETL/ELT, Cloud Data Platforms</li>
+          <li>Core: Python, PySpark, SQL, Databricks, ADF, Kafka, AWS, Azure</li>
+          <li>Domains: Healthcare (CMS/EMR/Claims), Payments, E-commerce</li>
+          <li>DevOps: Terraform, Jenkins, Airflow, Docker, Kubernetes</li>
         </ul>
+      </aside>
+    </main>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h3 class="section-title">About</h3>
+      <div class="card">
+        <p style="color:var(--muted);margin-top:0">
+          I hold a Master’s in Computer Science from the University of Texas at Arlington and a Bachelor’s in Computer Science. Over the last five years I’ve built resilient, automated data platforms that transform messy, high-volume data into trusted inputs for analytics, experimentation, and product insights. I focus on reducing time-to-insight and making data dependable for downstream teams.
+        </p>
       </div>
     </section>
 
-    <!-- About -->
-    <section id="about" class="max-w-6xl mx-auto px-6 py-20">
-      <h2 class="text-3xl font-semibold mb-6">About</h2>
-      <p class="text-gray-300 max-w-3xl">
-        I hold a Master’s in Computer Science from the University of Texas at Arlington. Over the past five years, I’ve built data platforms that transform raw, complex data into reliable insights. My goal is to deliver scalable, automated, and efficient data systems that empower analytics and business decisions.
-      </p>
-    </section>
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h3 class="section-title">Experience</h3>
 
-    <!-- Experience -->
-    <section id="experience" class="max-w-6xl mx-auto px-6 py-20">
-      <h2 class="text-3xl font-semibold mb-8">Experience</h2>
-
-      <div class="space-y-10">
-        <div class="bg-[#0b0b0b] border border-white/5 rounded-2xl p-6">
-          <h3 class="font-bold text-lg">Mastercard</h3>
-          <p class="text-sm text-gray-400 mb-4">Data Engineer | Aug 2023 – Present</p>
-          <ul class="list-disc list-inside text-gray-300 space-y-2 text-sm">
-            <li>Optimized data ingestion using Python-based frameworks, reducing processing time by 30%.</li>
-            <li>Built Spark jobs integrating REST API data for analytics pipelines.</li>
-            <li>Automated workflows with Airflow and shell scripts.</li>
-            <li>Configured Kafka clusters and streaming pipelines.</li>
+      <div class="grid-2">
+        <div class="card">
+          <div class="role">
+            <h5>Mastercard</h5>
+            <div class="meta">Data Engineer — Aug 2023 – Present</div>
+          </div>
+          <ul style="color:#eafcff;margin-top:6px">
+            <li>Optimized ingestion frameworks in Python, reducing processing time by ~30%.</li>
+            <li>Created Spark jobs that integrated REST APIs and processed JSON at scale.</li>
+            <li>Configured Kafka clusters and developed producers/consumers for streaming pipelines.</li>
+            <li>Automated ETL with Airflow and shell scripts; built Spark SQL jobs for facts &amp; dimensions.</li>
           </ul>
         </div>
 
-        <div class="bg-[#0b0b0b] border border-white/5 rounded-2xl p-6">
-          <h3 class="font-bold text-lg">UnitedHealth Group</h3>
-          <p class="text-sm text-gray-400 mb-4">Data Engineer | Jul 2021 – May 2022</p>
-          <ul class="list-disc list-inside text-gray-300 space-y-2 text-sm">
-            <li>Created Azure Data Factory pipelines and Databricks notebooks for healthcare data.</li>
-            <li>Ensured HIPAA compliance and data security using Azure Key Vault.</li>
-            <li>Processed EMR and CMS data via Event Hubs for real-time ingestion.</li>
+        <div class="card">
+          <div class="role">
+            <h5>UnitedHealth Group</h5>
+            <div class="meta">Data Engineer — Jul 2021 – May 2022</div>
+          </div>
+          <ul style="color:#eafcff;margin-top:6px">
+            <li>Built ADF pipelines and Databricks notebooks processing Delta Lake for healthcare analytics (CMS/EMR/Claims).</li>
+            <li>Secured secrets in Azure Key Vault and ensured HIPAA-compliant ETL processes.</li>
+            <li>Used Event Hubs for near real-time ingestion and automated deployments with JSON.</li>
           </ul>
         </div>
 
-        <div class="bg-[#0b0b0b] border border-white/5 rounded-2xl p-6">
-          <h3 class="font-bold text-lg">CMR Infotech</h3>
-          <p class="text-sm text-gray-400 mb-4">Data Engineer | May 2019 – Jun 2021</p>
-          <ul class="list-disc list-inside text-gray-300 space-y-2 text-sm">
-            <li>Built Hadoop-based ETL pipelines using Hive and Spark.</li>
-            <li>Developed SQL schemas and optimized query performance.</li>
-            <li>Automated data workflows with Oozie and visualized in Tableau.</li>
+        <div class="card">
+          <div class="role">
+            <h5>CMR Infotech</h5>
+            <div class="meta">Data Engineer — May 2019 – Jun 2021</div>
+          </div>
+          <ul style="color:#eafcff;margin-top:6px">
+            <li>Built Hadoop + Hive ETL pipelines, optimized SQL queries, and automated workflows with Oozie.</li>
+            <li>Used Python (Pandas, PySpark) for data transformations and Tableau for visualizations.</li>
           </ul>
+        </div>
+
+        <div class="card">
+          <div class="role">
+            <h5>Education</h5>
+            <div class="meta">University of Texas at Arlington — M.S. Computer Science<br>The Institute of Aeronautical Engineering — B.S. Computer Science</div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="max-w-6xl mx-auto px-6 py-20">
-      <h2 class="text-3xl font-semibold mb-6">Selected Projects</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="rounded-2xl border border-white/5 p-6 bg-[#0b0b0b]">
-          <h4 class="font-semibold">Real-Time Streaming Pipeline</h4>
-          <p class="text-sm text-gray-300 mt-2">Developed Kafka + Spark streaming ingestion with near real-time analytics.</p>
-          <p class="mt-4 text-xs text-gray-400">Tech: Kafka, Spark, AWS, Python</p>
+    <section id="projects">
+      <h3 class="section-title">Selected Projects</h3>
+      <div class="projects-grid">
+        <div class="card">
+          <strong>Real-Time Streaming Pipeline</strong>
+          <p style="color:var(--muted);margin:10px 0 0">Built Kafka + Spark Structured Streaming pipeline with schema evolution and idempotent processing, delivering near real-time dashboards.</p>
+          <div style="color:var(--muted);margin-top:10px;font-size:13px">Tech: Kafka, Spark Structured Streaming, AWS, Python</div>
         </div>
-        <div class="rounded-2xl border border-white/5 p-6 bg-[#0b0b0b]">
-          <h4 class="font-semibold">Healthcare Data Lake</h4>
-          <p class="text-sm text-gray-300 mt-2">Built HIPAA-compliant data lake for CMS and EMR analytics.</p>
-          <p class="mt-4 text-xs text-gray-400">Tech: Azure Data Factory, Databricks, Delta Lake</p>
+
+        <div class="card">
+          <strong>Healthcare Data Lake</strong>
+          <p style="color:var(--muted);margin:10px 0 0">Designed HIPAA-compliant lakehouse with Databricks + Delta Lake for CMS and EMR analytics.</p>
+          <div style="color:var(--muted);margin-top:10px;font-size:13px">Tech: Azure Data Factory, Databricks, Delta Lake</div>
         </div>
-        <div class="rounded-2xl border border-white/5 p-6 bg-[#0b0b0b]">
-          <h4 class="font-semibold">E-commerce Insights Platform</h4>
-          <p class="text-sm text-gray-300 mt-2">Integrated customer data for behavioral and LTV analytics.</p>
-          <p class="mt-4 text-xs text-gray-400">Tech: AWS Redshift, Glue, Spark</p>
+
+        <div class="card">
+          <strong>E-commerce Insights Platform</strong>
+          <p style="color:var(--muted);margin:10px 0 0">Integrated transactional + behavioral data into Redshift to compute LTV and segmentation models.</p>
+          <div style="color:var(--muted);margin-top:10px;font-size:13px">Tech: AWS Redshift, Glue, Spark</div>
         </div>
-        <div class="rounded-2xl border border-white/5 p-6 bg-[#0b0b0b]">
-          <h4 class="font-semibold">CI/CD for Data Workflows</h4>
-          <p class="text-sm text-gray-300 mt-2">Implemented Terraform + Jenkins pipelines for automated data deployments.</p>
-          <p class="mt-4 text-xs text-gray-400">Tech: Terraform, Jenkins, Airflow</p>
+
+        <div class="card">
+          <strong>CI/CD for Data Workflows</strong>
+          <p style="color:var(--muted);margin:10px 0 0">Infrastructure-as-code with Terraform + Jenkins and automated DAG deployments for Airflow.</p>
+          <div style="color:var(--muted);margin-top:10px;font-size:13px">Tech: Terraform, Jenkins, Airflow, Docker</div>
         </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h3 class="section-title">Skills</h3>
+      <div class="skill-grid">
+        <div class="card"><strong>Programming</strong><div style="color:var(--muted);margin-top:8px">Python, Scala, SQL, Java</div></div>
+        <div class="card"><strong>Big Data</strong><div style="color:var(--muted);margin-top:8px">Spark, Hadoop, Hive, Kafka</div></div>
+        <div class="card"><strong>Cloud</strong><div style="color:var(--muted);margin-top:8px">Azure, AWS, GCP</div></div>
+        <div class="card"><strong>DevOps</strong><div style="color:var(--muted);margin-top:8px">Terraform, Docker, Kubernetes, Jenkins</div></div>
+        <div class="card"><strong>Data Tools</strong><div style="color:var(--muted);margin-top:8px">Databricks, ADF, Airflow, Snowflake</div></div>
+        <div class="card"><strong>Visualization</strong><div style="color:var(--muted);margin-top:8px">Tableau, Power BI, SSRS</div></div>
       </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="max-w-6xl mx-auto px-6 py-20">
-      <h2 class="text-3xl font-semibold mb-6">Contact</h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="rounded-2xl border border-white/5 p-6 bg-[#0b0b0b]">
-          <p class="text-gray-300">Interested in collaborating or hiring? Let’s connect.</p>
-          <div class="mt-6 text-sm text-gray-300">
-            <p><strong>Email:</strong> tarunnethibs@gmail.com</p>
-            <p><strong>Phone:</strong> +1 (469) 847-9161</p>
-            <p class="mt-3"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/tarun-nethi-628082172" class="text-cyan-300 hover:underline">linkedin.com/in/tarun-nethi-628082172</a></p>
+    <section id="contact">
+      <h3 class="section-title">Contact</h3>
+      <div class="contact-grid">
+        <div class="card">
+          <p style="color:var(--muted)">I'm available for full-time roles and consulting projects in data engineering, analytics infrastructure, and cloud migrations. If you want to collaborate, send a message or download my resume.</p>
+
+          <div style="margin-top:14px;color:var(--muted);font-size:14px">
+            <div><strong>Email:</strong> tarunnethibs@gmail.com</div>
+            <div><strong>Phone:</strong> +1 (469) 847-9161</div>
+            <div style="margin-top:8px"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/tarun-nethi-628082172" style="color:var(--accent);text-decoration:none">linkedin.com/in/tarun-nethi-628082172</a></div>
           </div>
         </div>
 
-        <form class="rounded-2xl border border-white/5 p-6 bg-[#0b0b0b]">
-          <label class="text-sm text-gray-300">Name</label>
-          <input class="mt-2 w-full bg-transparent border border-white/5 rounded px-3 py-2 text-white text-sm" placeholder="Your name" />
-          <label class="text-sm text-gray-300 mt-4 block">Email</label>
-          <input class="mt-2 w-full bg-transparent border border-white/5 rounded px-3 py-2 text-white text-sm" placeholder="you@company.com" />
-          <label class="text-sm text-gray-300 mt-4 block">Message</label>
-          <textarea class="mt-2 w-full bg-transparent border border-white/5 rounded px-3 py-2 text-white text-sm h-28" placeholder="Describe your project"></textarea>
-          <button type="button" class="mt-4 px-4 py-2 bg-cyan-400/10 border border-cyan-400 rounded">Send message</button>
+        <form class="card" onsubmit="handleForm(event)">
+          <label for="name">Name</label>
+          <input id="name" name="name" placeholder="Your name" required>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@company.com" required>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" placeholder="Describe your opportunity" required></textarea>
+          <div style="margin-top:12px">
+            <button class="send-btn" type="submit">Send message</button>
+          </div>
+          <p id="form-note" style="color:var(--muted);font-size:13px;margin-top:10px;display:none"></p>
         </form>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-8 text-center text-sm text-gray-500">© 2025 Tarun Nethi • Built with ❤️ and Python</footer>
+    <footer>
+      © <span id="yr"></span> Tarun Nethi • Built with care
+    </footer>
+  </div>
 
-    <!-- Lenis + GSAP Animations -->
-    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.25/dist/lenis.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script>
-      const lenis = new Lenis({
-        duration: 1.3,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      });
+  <!-- Libraries (Lenis + GSAP) -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.25/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
+  <script>
+    // set year
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Smooth scrolling: Lenis
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
       requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
 
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.utils.toArray("section").forEach((section) => {
-        gsap.from(section, {
-          scrollTrigger: { trigger: section, start: "top 85%", toggleActions: "play none none none" },
-          opacity: 0,
-          y: 40,
-          duration: 0.8,
-          ease: "power2.out",
-        });
+    // GSAP animations
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Intro sequence
+    const tl = gsap.timeline();
+    tl.from('#intro-line-1', {duration:0.9, y:30, opacity:0, ease:"power3.out"})
+      .from('#intro-line-2', {duration:0.7, y:20, opacity:0, ease:"power3.out"}, "-=0.4")
+      .from('#intro-sub', {duration:0.6, y:14, opacity:0, ease:"power3.out"}, "-=0.35")
+      .from('.cta', {duration:0.6, y:10, opacity:0, ease:"power3.out"}, "-=0.3");
+
+    // Section reveal on scroll
+    gsap.utils.toArray('section').forEach((sec) => {
+      gsap.from(sec, {
+        scrollTrigger: {
+          trigger: sec,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        },
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power2.out'
       });
-    </script>
-  </body>
+    });
+
+    // Smooth active nav highlight
+    const navLinks = document.querySelectorAll('#nav a[href^="#"]');
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').slice(1);
+        const el = document.getElementById(targetId);
+        if (el) {
+          // Lenis scrollTo
+          lenis.scrollTo(el, {offset: -24, duration: 1.2});
+        }
+      });
+    });
+
+    // Update active nav on scroll (using ScrollTrigger)
+    navLinks.forEach((link) => {
+      const id = link.getAttribute('href');
+      if (!id.startsWith('#')) return;
+      ScrollTrigger.create({
+        trigger: document.querySelector(id),
+        start: 'top center',
+        end: 'bottom center',
+        onEnter: () => setActive(link),
+        onEnterBack: () => setActive(link),
+      });
+    });
+
+    function setActive(el){
+      navLinks.forEach(l => l.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    // Simple form handler (client-side only) — replace with your form endpoint
+    function handleForm(e){
+      e.preventDefault();
+      const name = e.target.name.value.trim();
+      const email = e.target.email.value.trim();
+      const message = e.target.message.value.trim();
+      const note = document.getElementById('form-note');
+
+      // Basic UX feedback — you should replace this with real submission (Formspree, Netlify, serverless)
+      note.style.display = 'block';
+      note.style.color = 'var(--muted)';
+      note.textContent = 'Thanks — message captured locally (this demo does not send email). To enable sending, connect a form endpoint.';
+
+      // clear form
+      e.target.reset();
+      setTimeout(()=> note.style.display = 'none', 6000);
+    }
+  </script>
+</body>
 </html>
